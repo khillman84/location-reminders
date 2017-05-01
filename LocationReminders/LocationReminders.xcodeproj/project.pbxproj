@@ -13,7 +13,26 @@
 		E5DA2A1B1EB7AC0100FCC53B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DA2A191EB7AC0100FCC53B /* Main.storyboard */; };
 		E5DA2A1D1EB7AC0100FCC53B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5DA2A1C1EB7AC0100FCC53B /* Assets.xcassets */; };
 		E5DA2A201EB7AC0100FCC53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5DA2A1E1EB7AC0100FCC53B /* LaunchScreen.storyboard */; };
+		E5DA2A2A1EB7B2D400FCC53B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DA2A281EB7B2D400FCC53B /* Bolts.framework */; };
+		E5DA2A2B1EB7B2D400FCC53B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DA2A291EB7B2D400FCC53B /* Parse.framework */; };
+		E5DA2A2D1EB7B30F00FCC53B /* Parse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5DA2A291EB7B2D400FCC53B /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5DA2A2E1EB7B31700FCC53B /* Bolts.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5DA2A281EB7B2D400FCC53B /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5DA2A301EB7C0CC00FCC53B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DA2A2F1EB7C0CC00FCC53B /* MapKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5DA2A2C1EB7B2F300FCC53B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5DA2A2E1EB7B31700FCC53B /* Bolts.framework in CopyFiles */,
+				E5DA2A2D1EB7B30F00FCC53B /* Parse.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E5DA2A0D1EB7AC0100FCC53B /* LocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +45,9 @@
 		E5DA2A1C1EB7AC0100FCC53B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5DA2A1F1EB7AC0100FCC53B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5DA2A211EB7AC0100FCC53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5DA2A281EB7B2D400FCC53B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		E5DA2A291EB7B2D400FCC53B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Carthage/Build/iOS/Parse.framework; sourceTree = "<group>"; };
+		E5DA2A2F1EB7C0CC00FCC53B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5DA2A2A1EB7B2D400FCC53B /* Bolts.framework in Frameworks */,
+				E5DA2A301EB7C0CC00FCC53B /* MapKit.framework in Frameworks */,
+				E5DA2A2B1EB7B2D400FCC53B /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +69,7 @@
 			children = (
 				E5DA2A0F1EB7AC0100FCC53B /* LocationReminders */,
 				E5DA2A0E1EB7AC0100FCC53B /* Products */,
+				E5DA2A271EB7B2D400FCC53B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +105,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E5DA2A271EB7B2D400FCC53B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA2A2F1EB7C0CC00FCC53B /* MapKit.framework */,
+				E5DA2A281EB7B2D400FCC53B /* Bolts.framework */,
+				E5DA2A291EB7B2D400FCC53B /* Parse.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +125,7 @@
 				E5DA2A091EB7AC0100FCC53B /* Sources */,
 				E5DA2A0A1EB7AC0100FCC53B /* Frameworks */,
 				E5DA2A0B1EB7AC0100FCC53B /* Resources */,
+				E5DA2A2C1EB7B2F300FCC53B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -112,6 +149,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 6ZL2QC28LX;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -276,6 +318,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6ZL2QC28LX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LocationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kylehillman.LocationReminders;
@@ -288,6 +334,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6ZL2QC28LX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LocationReminders/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kylehillman.LocationReminders;
