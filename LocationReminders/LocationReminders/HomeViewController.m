@@ -6,18 +6,18 @@
 //  Copyright © 2017 Kyle Hillman. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HomeViewController.h"
 
 @import Parse;
 @import MapKit;
 
-@interface ViewController ()
+@interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
-@implementation ViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,6 +63,19 @@
     
 }
 
+- (IBAction)homeButtonPressed:(id)sender {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(46.999976, -122.925674);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
+- (IBAction)codeButtonPressed:(id)sender {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.618217, -122.351832);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

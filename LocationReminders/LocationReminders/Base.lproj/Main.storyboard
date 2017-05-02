@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,21 +26,43 @@
                                 <rect key="frame" x="56.5" y="99.5" width="262.5" height="467"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVT-Qf-bD1">
-                                <rect key="frame" x="152" y="596" width="70" height="30"/>
+                                <rect key="frame" x="16" y="589" width="70" height="30"/>
                                 <state key="normal" title="Location 1"/>
                                 <connections>
                                     <action selector="locationOnePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YFr-UL-9Ct"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOo-y2-oKJ">
+                                <rect key="frame" x="267" y="589" width="92" height="30"/>
+                                <state key="normal" title="Code Fellows"/>
+                                <connections>
+                                    <action selector="codeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hQN-OM-FnJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-k3-8Zx">
+                                <rect key="frame" x="164" y="589" width="41" height="30"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gDR-Ok-Jbc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xOo-y2-oKJ" secondAttribute="trailing" constant="16" id="1Yn-Y7-gP6"/>
                             <constraint firstItem="o6n-0F-CLZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2cT-Oq-kE4"/>
+                            <constraint firstItem="xOo-y2-oKJ" firstAttribute="top" secondItem="o6n-0F-CLZ" secondAttribute="bottom" constant="22.5" id="3Dq-IY-GuT"/>
+                            <constraint firstItem="xOo-y2-oKJ" firstAttribute="leading" secondItem="kmt-k3-8Zx" secondAttribute="trailing" constant="62" id="68M-wD-hBh"/>
+                            <constraint firstItem="kmt-k3-8Zx" firstAttribute="leading" secondItem="RVT-Qf-bD1" secondAttribute="trailing" constant="78" id="6Yw-Z8-Ya8"/>
+                            <constraint firstItem="kmt-k3-8Zx" firstAttribute="top" secondItem="o6n-0F-CLZ" secondAttribute="bottom" constant="22.5" id="DI5-aT-aMT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xOo-y2-oKJ" secondAttribute="bottom" constant="48" id="Fl3-vj-Wfw"/>
                             <constraint firstItem="o6n-0F-CLZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="WWo-ms-i1C"/>
                             <constraint firstItem="o6n-0F-CLZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="c3A-il-GQp"/>
-                            <constraint firstItem="RVT-Qf-bD1" firstAttribute="top" secondItem="o6n-0F-CLZ" secondAttribute="bottom" constant="29.5" id="gXq-oU-aaF"/>
-                            <constraint firstItem="RVT-Qf-bD1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZn-sp-NsB"/>
+                            <constraint firstItem="RVT-Qf-bD1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="dRE-1t-gHE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kmt-k3-8Zx" secondAttribute="bottom" constant="48" id="gPu-Tp-tGs"/>
                             <constraint firstItem="o6n-0F-CLZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="jNs-7u-T1h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RVT-Qf-bD1" secondAttribute="bottom" constant="48" id="lqf-tx-PUE"/>
+                            <constraint firstItem="RVT-Qf-bD1" firstAttribute="top" secondItem="o6n-0F-CLZ" secondAttribute="bottom" constant="22.5" id="xow-jD-GBe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -49,6 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
 </document>
