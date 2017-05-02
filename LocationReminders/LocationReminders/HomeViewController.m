@@ -8,11 +8,12 @@
 
 #import "HomeViewController.h"
 #import "AddReminderViewController.h"
+#import "LocationControllerDelegate.h"
 
 @import Parse;
 @import MapKit;
 
-@interface HomeViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface HomeViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -118,7 +119,6 @@
     
 }
 
-
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     
     CLLocation *location = locations.lastObject;
@@ -150,6 +150,9 @@
     
     return annotationView;
 }
+
+
+
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     NSLog(@"Accessory Tapped");
