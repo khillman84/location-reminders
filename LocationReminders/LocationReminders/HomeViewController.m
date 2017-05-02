@@ -9,11 +9,12 @@
 #import "HomeViewController.h"
 #import "AddReminderViewController.h"
 #import "LocationControllerDelegate.h"
+#import "LocationController.h"
 
 @import Parse;
 @import MapKit;
 
-@interface HomeViewController () <CLLocationManagerDelegate, MKMapViewDelegate, LocationControllerDelegate>
+@interface HomeViewController () <MKMapViewDelegate, LocationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self requestPermissions];
+    LocationController *requestPermissions;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     
@@ -54,17 +55,7 @@
     
 }
 
--(void) requestPermissions{
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.distanceFilter = 100; //meters
-    
-    self.locationManager.delegate = self;
-    
-    [self.locationManager requestAlwaysAuthorization];
-    
-    [self.locationManager startUpdatingLocation];
-}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -119,15 +110,6 @@
     
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
-    CLLocation *location = locations.lastObject;
-    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
-    
-    [self.mapView setRegion:region animated:YES];
-}
-
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -151,12 +133,13 @@
     return annotationView;
 }
 
-
-
-
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     NSLog(@"Accessory Tapped");
     [self performSegueWithIdentifier:@"AddReminderViewController" sender:view];
+}
+
+-(void)locationControllerUpdatedLocation:(CLLocation *)location {
+    self.mapView.showsUserLocation;
 }
 
 @end

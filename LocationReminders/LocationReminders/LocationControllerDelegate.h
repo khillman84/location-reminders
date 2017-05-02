@@ -10,7 +10,7 @@
 
 @protocol LocationControllerDelegate <NSObject>
 
-@optional
+@required
 - (void)locationControllerUpdatedLocation:(CLLocation *)location;
 
 @end

@@ -22,7 +22,29 @@
     });
     
     return shared;
-    
 }
+
+-(void) requestPermissions{
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 100; //meters
+    
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    
+    CLLocation *location = locations.lastObject;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
+
 
 @end

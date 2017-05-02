@@ -74,13 +74,13 @@
 		E5D443021EB91EF1002F7FF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E5D443011EB91EE1002F7FF2 /* LocationControllerDelegate.h */,
 				E5D442FE1EB91B57002F7FF2 /* LocationController.h */,
 				E5D442FF1EB91B57002F7FF2 /* LocationController.m */,
 				E5DA2A161EB7AC0100FCC53B /* HomeViewController.h */,
 				E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */,
 				E5D442ED1EB8FF21002F7FF2 /* AddReminderViewController.h */,
 				E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */,
-				E5D443011EB91EE1002F7FF2 /* LocationControllerDelegate.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
