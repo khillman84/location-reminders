@@ -150,3 +150,13 @@ build
 /*.gcno
 
 # End of https://www.gitignore.io/api/swift,xcode,objective-c,macos
+
+
+# Created by https://www.gitignore.io/api/carthage
+
+### Carthage ###
+# Carthage - A simple, decentralized dependency manager for Cocoa
+Carthage/Checkouts/
+Carthage/Build/
+
+# End of https://www.gitignore.io/api/carthage
