@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5D442EF1EB8FF21002F7FF2 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */; };
 		E5DA2A121EB7AC0100FCC53B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A111EB7AC0100FCC53B /* main.m */; };
 		E5DA2A151EB7AC0100FCC53B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A141EB7AC0100FCC53B /* AppDelegate.m */; };
 		E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E5D442ED1EB8FF21002F7FF2 /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
+		E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
 		E5DA2A0D1EB7AC0100FCC53B /* LocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DA2A111EB7AC0100FCC53B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E5DA2A131EB7AC0100FCC53B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				E5DA2A161EB7AC0100FCC53B /* HomeViewController.h */,
 				E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */,
 				E5DA2A191EB7AC0100FCC53B /* Main.storyboard */,
+				E5D442ED1EB8FF21002F7FF2 /* AddReminderViewController.h */,
+				E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */,
 				E5DA2A1C1EB7AC0100FCC53B /* Assets.xcassets */,
 				E5DA2A1E1EB7AC0100FCC53B /* LaunchScreen.storyboard */,
 				E5DA2A211EB7AC0100FCC53B /* Info.plist */,
@@ -193,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D442EF1EB8FF21002F7FF2 /* AddReminderViewController.m in Sources */,
 				E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */,
 				E5DA2A151EB7AC0100FCC53B /* AppDelegate.m in Sources */,
 				E5DA2A121EB7AC0100FCC53B /* main.m in Sources */,
@@ -364,6 +370,7 @@
 				E5DA2A261EB7AC0100FCC53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
