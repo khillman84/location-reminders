@@ -8,7 +8,7 @@
 
 #import "LocationController.h"
 
-@import MapKit;
+//@import MapKit;
 
 @implementation LocationController
 
@@ -24,25 +24,30 @@
     return shared;
 }
 
+- (id)init {
+    self = [super init];
+    if (self){
+        [self requestPermissions];
+    }
+    self.locationManager.delegate = self;
+    
+    return self;
+}
+
 -(void) requestPermissions{
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 100; //meters
-    
-    self.locationManager.delegate = self;
     
     [self.locationManager requestAlwaysAuthorization];
     
     [self.locationManager startUpdatingLocation];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    
-    CLLocation *location = locations.lastObject;
-    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500.0, 500.0);
-    
-    [self.delegate setRegion:region animated:YES];
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    self.location = locations.lastObject;
+    [self.delegate locationControllerUpdatedLocation:self.location];
+
 }
 
 

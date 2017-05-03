@@ -18,7 +18,7 @@
 @interface HomeViewController () <MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+//@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -26,9 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    LocationController *locationController = [LocationController shared];
+    locationController.delegate = self;
     
-    LocationController *requestPermissions;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
 
@@ -46,11 +47,13 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self fetchQuery];
+}
+
 -(void)reminderSavedToParse:(id)sender {
     NSLog(@"Do some stuff since our new Reminder was saved");
 }
-
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -147,7 +150,8 @@
 }
 
 -(void)locationControllerUpdatedLocation:(CLLocation *)location {
-    self.mapView.showsUserLocation;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 100, 100);
+    [self.mapView setRegion:region animated:YES];
 }
 
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
@@ -166,6 +170,17 @@
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)fetchQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            NSLog(@"Query Results %@", objects);
+        }
+    }];
 }
 
 @end

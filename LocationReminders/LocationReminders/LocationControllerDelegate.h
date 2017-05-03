@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+@import CoreLocation;
+
 @protocol LocationControllerDelegate <NSObject>
 
-@required
+
 - (void)locationControllerUpdatedLocation:(CLLocation *)location;
 
 @end

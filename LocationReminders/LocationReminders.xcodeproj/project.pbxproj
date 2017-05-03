@@ -238,10 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */,
 				E5D443001EB91B57002F7FF2 /* LocationController.m in Sources */,
 				E592A2EB1EBA465C0033C62D /* Reminder.m in Sources */,
 				E5D442EF1EB8FF21002F7FF2 /* AddReminderViewController.m in Sources */,
-				E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */,
 				E5DA2A151EB7AC0100FCC53B /* AppDelegate.m in Sources */,
 				E5DA2A121EB7AC0100FCC53B /* main.m in Sources */,
 			);
