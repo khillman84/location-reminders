@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5D442EF1EB8FF21002F7FF2 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */; };
+		E5D443001EB91B57002F7FF2 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D442FF1EB91B57002F7FF2 /* LocationController.m */; };
 		E5DA2A121EB7AC0100FCC53B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A111EB7AC0100FCC53B /* main.m */; };
 		E5DA2A151EB7AC0100FCC53B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A141EB7AC0100FCC53B /* AppDelegate.m */; };
 		E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */; };
@@ -35,6 +37,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E5D442ED1EB8FF21002F7FF2 /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
+		E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		E5D442FE1EB91B57002F7FF2 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationController.h; path = ../LocationController.h; sourceTree = "<group>"; };
+		E5D442FF1EB91B57002F7FF2 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationController.m; path = ../LocationController.m; sourceTree = "<group>"; };
+		E5D443011EB91EE1002F7FF2 /* LocationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 		E5DA2A0D1EB7AC0100FCC53B /* LocationReminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationReminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DA2A111EB7AC0100FCC53B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E5DA2A131EB7AC0100FCC53B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +71,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5D443021EB91EF1002F7FF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5D443011EB91EE1002F7FF2 /* LocationControllerDelegate.h */,
+				E5D442FE1EB91B57002F7FF2 /* LocationController.h */,
+				E5D442FF1EB91B57002F7FF2 /* LocationController.m */,
+				E5DA2A161EB7AC0100FCC53B /* HomeViewController.h */,
+				E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */,
+				E5D442ED1EB8FF21002F7FF2 /* AddReminderViewController.h */,
+				E5D442EE1EB8FF21002F7FF2 /* AddReminderViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E5D443031EB91F70002F7FF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA2A1E1EB7AC0100FCC53B /* LaunchScreen.storyboard */,
+				E5DA2A1C1EB7AC0100FCC53B /* Assets.xcassets */,
+				E5DA2A191EB7AC0100FCC53B /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E5D443041EB91F86002F7FF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA2A131EB7AC0100FCC53B /* AppDelegate.h */,
+				E5DA2A141EB7AC0100FCC53B /* AppDelegate.m */,
+				E5DA2A211EB7AC0100FCC53B /* Info.plist */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E5DA2A041EB7AC0100FCC53B = {
 			isa = PBXGroup;
 			children = (
@@ -84,14 +125,9 @@
 		E5DA2A0F1EB7AC0100FCC53B /* LocationReminders */ = {
 			isa = PBXGroup;
 			children = (
-				E5DA2A131EB7AC0100FCC53B /* AppDelegate.h */,
-				E5DA2A141EB7AC0100FCC53B /* AppDelegate.m */,
-				E5DA2A161EB7AC0100FCC53B /* HomeViewController.h */,
-				E5DA2A171EB7AC0100FCC53B /* HomeViewController.m */,
-				E5DA2A191EB7AC0100FCC53B /* Main.storyboard */,
-				E5DA2A1C1EB7AC0100FCC53B /* Assets.xcassets */,
-				E5DA2A1E1EB7AC0100FCC53B /* LaunchScreen.storyboard */,
-				E5DA2A211EB7AC0100FCC53B /* Info.plist */,
+				E5D443041EB91F86002F7FF2 /* Model */,
+				E5D443021EB91EF1002F7FF2 /* Controller */,
+				E5D443031EB91F70002F7FF2 /* View */,
 				E5DA2A101EB7AC0100FCC53B /* Supporting Files */,
 			);
 			path = LocationReminders;
@@ -193,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D443001EB91B57002F7FF2 /* LocationController.m in Sources */,
+				E5D442EF1EB8FF21002F7FF2 /* AddReminderViewController.m in Sources */,
 				E5DA2A181EB7AC0100FCC53B /* HomeViewController.m in Sources */,
 				E5DA2A151EB7AC0100FCC53B /* AppDelegate.m in Sources */,
 				E5DA2A121EB7AC0100FCC53B /* main.m in Sources */,
@@ -364,6 +402,7 @@
 				E5DA2A261EB7AC0100FCC53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
