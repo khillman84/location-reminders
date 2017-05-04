@@ -17,6 +17,8 @@
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) id <LocationControllerDelegate> delegate;
 
-+(id)shared;
++(instancetype)shared;
+
+-(void)startMonitoringForRegion:(CLRegion *)region;
 
 @end
