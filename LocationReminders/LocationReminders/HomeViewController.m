@@ -13,11 +13,12 @@
 
 @import Parse;
 @import MapKit;
+@import ParseUI;
 
-@interface HomeViewController () <MKMapViewDelegate, LocationControllerDelegate>
+@interface HomeViewController () <MKMapViewDelegate, LocationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+//@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -25,37 +26,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    LocationController *locationController = [LocationController shared];
+    locationController.delegate = self;
     
-    LocationController *requestPermissions;
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-    
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    
-//    testObject[@"testName"] = @"Kyle Hillman";
-//    
-//    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if (succeeded) {
-//            NSLog(@"Success saving test object");
-//        } else {
-//            NSLog(@"There was a problem saving. Save Error: %@", error.localizedDescription);
-//        }
-//    }];
 
-//    PFQuery *query = [PFQuery queryWithClassName:@"TestObject"];
-//    
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"%@", error.localizedDescription);
-//        } else {
-//            NSLog(@"Query Results %@", objects);
-//        }
-//    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderSavedToParse:) name:@"ReminderSavedToParse" object:nil];
     
+    if (![PFUser currentUser]) {
+        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
+        
+        loginViewController.delegate = self;
+        loginViewController.signUpController.delegate = self;
+        
+        loginViewController.fields = PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsUsernameAndPassword;
+        
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self fetchQuery];
+}
 
+-(void)reminderSavedToParse:(id)sender {
+    NSLog(@"Do some stuff since our new Reminder was saved");
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     [super prepareForSegue:segue sender:sender];
@@ -69,7 +67,20 @@
         newReminderViewController.coordinate = annotationView.annotation.coordinate;
         newReminderViewController.annotationTitle = annotationView.annotation.title;
         newReminderViewController.title = annotationView.annotation.title;
+        
+        __weak typeof(self) bruce = self;
+        
+        newReminderViewController.completion = ^(MKCircle *circle) {
+            __strong typeof(bruce) hulk = bruce;
+            
+            [hulk.mapView removeAnnotation:annotationView.annotation];
+            [hulk.mapView addOverlay:circle];
+        };
     }
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"ReminderSavedToParse" object: nil];
 }
 
 - (IBAction)locationOnePressed:(id)sender {
@@ -139,7 +150,37 @@
 }
 
 -(void)locationControllerUpdatedLocation:(CLLocation *)location {
-    self.mapView.showsUserLocation;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 100, 100);
+    [self.mapView setRegion:region animated:YES];
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer *renderer = [[MKCircleRenderer alloc]initWithCircle:overlay];
+    
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.fillColor = [UIColor redColor];
+    renderer.alpha = 0.5;
+    
+    return renderer;
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)fetchQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Reminder"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+        } else {
+            NSLog(@"Query Results %@", objects);
+        }
+    }];
 }
 
 @end

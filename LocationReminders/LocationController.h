@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LocationControllerDelegate.h"
 
 @import MapKit;
 
@@ -14,8 +15,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
-@property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) id <LocationControllerDelegate> delegate;
 
-+(instancetype)shared;
++(id)shared;
 
 @end
